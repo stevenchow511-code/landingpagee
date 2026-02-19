@@ -127,7 +127,79 @@ footer {
   }
 }
 </style>
+  /* LUCKY SPIN */
+.lucky-spin {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.wheel-container {
+  margin: 20px auto;
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+#spin-btn {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
 </head>
+<script>
+const canvas = document.getElementById("wheel");
+const ctx = canvas.getContext("2d");
+const segments = ["100JT", "50JT", "Voucher", "Free Gift", "10JT", "Try Again"];
+const colors = ["#ff4b2b","#ff416c","#00f7ff","#39ff14","#b026ff","#ffdd00"];
+let startAngle = 0;
+const center = 150;
+const radius = 150;
+
+function drawWheel() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const arc = (2 * Math.PI) / segments.length;
+  for(let i = 0; i < segments.length; i++){
+    ctx.fillStyle = colors[i];
+    ctx.beginPath();
+    ctx.moveTo(center, center);
+    ctx.arc(center, center, radius, startAngle + i*arc, startAngle + (i+1)*arc);
+    ctx.fill();
+    
+    // text
+    ctx.save();
+    ctx.translate(center, center);
+    ctx.rotate(startAngle + i*arc + arc/2);
+    ctx.fillStyle = "#000";
+    ctx.font = "bold 16px Arial";
+    ctx.fillText(segments[i], radius - 70, 0);
+    ctx.restore();
+  }
+}
+
+// draw initial wheel
+drawWheel();
+
+document.getElementById("spin-btn").addEventListener("click", () => {
+  let spinTime = Math.random() * 2000 + 2000; // durasi putar 2-4 detik
+  let frames = 60;
+  let frameCount = 0;
+  let rotationPerFrame = (Math.random() * 10 + 10) * (Math.PI/180) / frames;
+
+  const spinInterval = setInterval(() => {
+    startAngle += rotationPerFrame;
+    drawWheel();
+    frameCount++;
+    if(frameCount >= frames){
+      clearInterval(spinInterval);
+
+      // tentukan pemenang
+      const arc = (2 * Math.PI) / segments.length;
+      const winnerIndex = Math.floor((segments.length - (startAngle % (2*Math.PI)) / arc) % segments.length);
+      document.getElementById("result").innerText = "Kamu mendapatkan: " + segments[winnerIndex];
+    }
+  }, spinTime / frames);
+});
+</script>
 
 <body>
 
@@ -153,6 +225,7 @@ footer {
 
 </body>
 </html>
+
 
 
 
