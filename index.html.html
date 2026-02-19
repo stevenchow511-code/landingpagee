@@ -133,241 +133,83 @@ footer {
   </div>
   <button id="spin-btn" class="btn">PUTAR!</button>
   <p id="result" class="neon-text" style="margin-top:20px;"></p>
-</secti
+</section>
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brand Kamu</title>
-<meta name="description" content="Solusi terbaik untuk kebutuhan Anda">
+<!-- FEATURES -->
+<section class="features">
+  <div class="card">
+    <h3>⚡ Super Cepat</h3>
+    <p>Optimasi performa untuk pengalaman terbaik.</p>
+  </div>
+  <div class="card">
+    <h3>🎨 Modern Design</h3>
+    <p>Tampilan clean dan premium untuk bisnis Anda.</p>
+  </div>
+  <div class="card">
+    <h3>🔒 Aman & Terpercaya</h3>
+    <p>Keamanan dan kepercayaan prioritas utama.</p>
+  </div>
+</section>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<!-- FOOTER -->
+<footer id="kontak">
+  © 2026 JOIN NOW
+</footer>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #0f172a;
-  color: white; /* ubah jadi putih */
-  }
-  /* NEON TEXT */
-  .neon-text {
-  font-size: 50px;
-  color: #ff3131;
-  text-align: center;
-  margin-top: 100px;
-  text-shadow:
-    0 0 5px #00f7ff,
-    0 0 10px #00f7ff,
-    0 0 20px #00f7ff,
-    0 0 40px #0088ff,
-    0 0 80px #0088ff;
-}
-
-/* HERO */
-.hero {
-  height: 100vh;
-  background: white; no-repeat center center/cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-
-.hero h1 {
-  font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  max-width: 600px;
-  font-size: 18px;
-  opacity: 0.8;
-  margin-bottom: 30px;
-}
-
-.btn {
-  padding: 15px 35px;
-  background: linear-gradient(45deg, #ff416c, #ff4b2b);
-  border-radius: 50px;
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  transition: 0.3s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255,75,43,0.4);
-}
-
-/* FEATURES */
-.features {
-  padding: 100px 20px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  background: no-repeat center center/cover;
-}
-
-.card {
-  background:no-repeat center center/cover;
-  padding: 30px;
-  border-radius: 20px;
-  width: 280px;
-  transition: 0.3s;
-  min-height: 250px
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  background: #334155;
-}
-
-.card h3 {
-  margin-bottom: 15px;
-  font-size: 20px;
-}
-
-.card p {
-  font-size: 14px;
-  opacity: 0.7;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  background: #111827;
-  font-size: 14px;
-  opacity: 0.6;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 32px;
-  }
-}
-</style>
-  /* LUCKY SPIN */
-.lucky-spin {
-  text-align: center;
-  margin: 50px 0;
-}
-
-.wheel-container {
-  margin: 20px auto;
-  width: 300px;
-  height: 300px;
-  position: relative;
-}
-
-#spin-btn {
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-</head>
+<!-- JS LUCKY SPIN -->
 <script>
-const canvas = document.getElementById("wheel");
-const ctx = canvas.getContext("2d");
-const segments = ["100JT", "50JT", "Voucher", "Free Gift", "10JT", "Try Again"];
-const colors = ["#ff4b2b","#ff416c","#00f7ff","#39ff14","#b026ff","#ffdd00"];
-let startAngle = 0;
-const center = 150;
-const radius = 150;
+document.addEventListener("DOMContentLoaded", function() {
+  const canvas = document.getElementById("wheel");
+  const ctx = canvas.getContext("2d");
+  const segments = ["100JT","50JT","Voucher","Free Gift","10JT","Try Again"];
+  const colors = ["#ff4b2b","#ff416c","#00f7ff","#39ff14","#b026ff","#ffdd00"];
+  let startAngle = 0;
+  const center = 150;
+  const radius = 150;
 
-function drawWheel() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const arc = (2 * Math.PI) / segments.length;
-  for(let i = 0; i < segments.length; i++){
-    ctx.fillStyle = colors[i];
-    ctx.beginPath();
-    ctx.moveTo(center, center);
-    ctx.arc(center, center, radius, startAngle + i*arc, startAngle + (i+1)*arc);
-    ctx.fill();
-    
-    // text
-    ctx.save();
-    ctx.translate(center, center);
-    ctx.rotate(startAngle + i*arc + arc/2);
-    ctx.fillStyle = "#000";
-    ctx.font = "bold 16px Arial";
-    ctx.fillText(segments[i], radius - 70, 0);
-    ctx.restore();
-  }
-}
+  function drawWheel() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    const arc = (2 * Math.PI) / segments.length;
+    for(let i=0;i<segments.length;i++){
+      ctx.fillStyle = colors[i];
+      ctx.beginPath();
+      ctx.moveTo(center,center);
+      ctx.arc(center,center,radius,startAngle+i*arc,startAngle+(i+1)*arc);
+      ctx.fill();
 
-// draw initial wheel
-drawWheel();
-
-document.getElementById("spin-btn").addEventListener("click", () => {
-  let spinTime = Math.random() * 2000 + 2000; // durasi putar 2-4 detik
-  let frames = 60;
-  let frameCount = 0;
-  let rotationPerFrame = (Math.random() * 10 + 10) * (Math.PI/180) / frames;
-
-  const spinInterval = setInterval(() => {
-    startAngle += rotationPerFrame;
-    drawWheel();
-    frameCount++;
-    if(frameCount >= frames){
-      clearInterval(spinInterval);
-
-      // tentukan pemenang
-      const arc = (2 * Math.PI) / segments.length;
-      const winnerIndex = Math.floor((segments.length - (startAngle % (2*Math.PI)) / arc) % segments.length);
-      document.getElementById("result").innerText = "Kamu mendapatkan: " + segments[winnerIndex];
+      // text
+      ctx.save();
+      ctx.translate(center,center);
+      ctx.rotate(startAngle+i*arc+arc/2);
+      ctx.fillStyle = "#000";
+      ctx.font = "bold 16px Arial";
+      ctx.fillText(segments[i], radius-70, 0);
+      ctx.restore();
     }
-  }, spinTime / frames);
+  }
+
+  drawWheel();
+
+  document.getElementById("spin-btn").addEventListener("click", () => {
+    let spinTime = Math.random() * 2000 + 2000;
+    let frames = 60;
+    let frameCount = 0;
+    let rotationPerFrame = (Math.random()*10+10)*(Math.PI/180)/frames;
+
+    const spinInterval = setInterval(() => {
+      startAngle += rotationPerFrame;
+      drawWheel();
+      frameCount++;
+      if(frameCount>=frames){
+        clearInterval(spinInterval);
+        const arc = (2*Math.PI)/segments.length;
+        const winnerIndex = Math.floor((segments.length-(startAngle % (2*Math.PI))/arc)%segments.length);
+        document.getElementById("result").innerText = "Kamu mendapatkan: " + segments[winnerIndex];
+      }
+    }, spinTime/frames);
+  });
 });
 </script>
 
-<body>
-
-<section class="hero">
-  <h1 class="neon-text">KLIK DIBAWAH INI DAN DAPATKAN 100 JT</h1>
-  <p class="neon-text">DAFTAR DAN KLAIM LANGSUNG HADIAHNYA</p>
-  <a href="#kontak" class="btn">DAFTAR SEKARANG</a>
-</section>
-
-<section class="lucky-spin">
-  <h2 class="neon-text">PUTAR RODA HADIAH!</h2>
-  <div class="wheel-container">
-    <canvas id="wheel" width="300" height="300"></canvas>
-  </div>
-  <button id="spin-btn" class="btn">PUTAR!</button>
-  <p id="result"></p>
-</section>
-
-
-<footer id="kontak">
-  © 2026 JOIN NOW 
-</footer>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
