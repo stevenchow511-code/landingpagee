@@ -1,3 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Kamu - Lucky Spin</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: white;
+}
+
+/* NEON TEXT */
+.neon-text {
+  color: #00f7ff;
+  text-align: center;
+  text-shadow:
+    0 0 5px #00f7ff,
+    0 0 10px #00f7ff,
+    0 0 20px #00f7ff,
+    0 0 40px #0088ff,
+    0 0 80px #0088ff;
+}
+
+/* HERO */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: #111827;
+}
+
+.hero h1 { font-size: 48px; margin-bottom: 20px; }
+.hero p { font-size: 20px; margin-bottom: 30px; }
+
+/* BUTTON */
+.btn {
+  padding: 15px 35px;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  border-radius: 50px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255,75,43,0.4);
+  text-shadow: 0 0 10px #ff4b2b, 0 0 20px #ff416c;
+}
+
+/* LUCKY SPIN */
+.lucky-spin {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.wheel-container {
+  margin: 20px auto;
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+#spin-btn {
+  margin-top: 20px;
+}
+
+/* FEATURES */
+.features {
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 20px;
+  width: 280px;
+  transition: 0.3s;
+  min-height: 250px;
+}
+.card:hover { transform: translateY(-10px); background: #334155; }
+.card h3 { margin-bottom: 15px; font-size: 20px; }
+.card p { font-size: 14px; opacity: 0.7; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #111827;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 32px; }
+  .hero p { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 class="neon-text">KLIK DIBAWAH INI DAN DAPATKAN HADIAH!</h1>
+  <p class="neon-text">DAFTAR DAN PUTAR RODA UNTUK MENANGKAN HADIAH</p>
+  <a href="#lucky-spin" class="btn">Mulai Sekarang</a>
+</section>
+
+<!-- LUCKY SPIN -->
+<section class="lucky-spin" id="lucky-spin">
+  <h2 class="neon-text">PUTAR RODA HADIAH!</h2>
+  <div class="wheel-container">
+    <canvas id="wheel" width="300" height="300"></canvas>
+  </div>
+  <button id="spin-btn" class="btn">PUTAR!</button>
+  <p id="result" class="neon-text" style="margin-top:20px;"></p>
+</secti
 
 <!DOCTYPE html>
 <html lang="id">
@@ -225,6 +361,7 @@ document.getElementById("spin-btn").addEventListener("click", () => {
 
 </body>
 </html>
+
 
 
 
