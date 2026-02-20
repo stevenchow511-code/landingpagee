@@ -14,7 +14,47 @@
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
+/* CARD STYLE */
+.card {
+  background: #111827;
+  padding: 25px;
+  border-radius: 15px;
+  width: 280px;
+  text-align: left;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.05);
+}
 
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,255,255,0.15);
+}
+
+/* MOBILE IMPROVEMENT */
+@media (max-width: 768px) {
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .wheel-container {
+    width: 260px;
+    height: 260px;
+  }
+
+  #wheel {
+    width: 260px;
+    height: 260px;
+  }
 body {
   background: #0f172a;
   color: white;
@@ -137,20 +177,24 @@ footer {
 </section>
 
 <!-- FEATURES -->
+<!-- FEATURES -->
 <section class="features">
- <a href="https://alursword.com" target="_blank" class="card">
-    <h3>⚡Super Cepat</h3>
+  
+  <a href="https://alursword.com" target="_blank" class="card">
+    <h3>⚡ Super Cepat</h3>
     <p>Proses tercepat dan terpercaya</p>
-  </div>
-  <div class="card">
+  </a>
+
+  <a href="https://alursword.com" target="_blank" class="card">
     <h3>🎨 Situs Mudah JP</h3>
     <p>Scatter melimpah dan kemenangan tanpa batas</p>
-  </div>
-  <div class="card">
+  </a>
+
+  <a href="https://alursword.com" target="_blank" class="card">
     <h3>🔒 Aman & Terpercaya</h3>
     <p>Keamanan dan kepercayaan prioritas utama.</p>
-  
-  </div>
+  </a>
+
 </section>
 
 <!-- FOOTER -->
@@ -243,6 +287,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
