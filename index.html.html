@@ -5,18 +5,120 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FREE - Lucky Spin</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://i.ibb.co/s9DW8MXH/testes.png">
+<link rel="icon" type="image/png" href="https://i.ibb.co/s9DW8MXH/testes.png">
 <style>
+/* RESET & FONT */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
-/* CARD STYLE */
+
+/* BODY & BACKGROUND */
+body {
+  background: url("https://i.ibb.co/d0Rj3zmn/image.png") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  min-height: 100vh;
+}
+
+/* HERO SECTION */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.neon-text {
+  color: #ffffff;
+  text-align: center;
+  text-shadow:
+    0 0 5px #00f7ff,
+    0 0 10px #00f7ff,
+    0 0 20px #00f7ff,
+    0 0 40px #0088ff,
+    0 0 80px #0088ff;
+}
+
+/* BUTTON */
+.btn {
+  padding: 15px 35px;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  border-radius: 50px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255,75,43,0.4);
+  text-shadow: 0 0 10px #ff4b2b, 0 0 20px #ff416c;
+}
+
+/* LUCKY SPIN */
+.lucky-spin {
+  text-align: center;
+  margin: 50px 20px;
+  padding: 20px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 20px;
+}
+
+.wheel-container {
+  margin: 20px auto;
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+.pointer {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid #ffdd00;
+  z-index: 10;
+}
+
+/* FEATURES CARDS */
+.features {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.5);
+  border-radius: 20px;
+}
+
 .card {
-  background: url("https://i.ibb.co/d0Rj3zmn/image.png")
+  background: rgba(0,0,0,0.4);
   padding: 30px;
   border-radius: 18px;
   width: 300px;
@@ -26,14 +128,24 @@
   transition: all 0.3s ease;
   border: 1px solid rgba(255,255,255,0.05);
 }
-
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 15px 35px rgba(0,255,255,0.15);
 }
 
-/* MOBILE IMPROVEMENT */
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #111827;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
+  .hero h1 { font-size: 32px; }
+  .hero p { font-size: 16px; }
 
   .features {
     flex-direction: column;
@@ -56,146 +168,11 @@
     height: 260px;
   }
 }
-body {
-  background: url("https://i.ibb.co/d0Rj3zmn/image.png") no-repeat center center fixed;
-  background-size: cover;
-  color: white;
-  min-height: 100vh;
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-}
 
-/* Tambahkan overlay semi-transparan untuk fitur agar teks terbaca */
-.features {
-  padding: 80px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 30px;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-
-  /* overlay agar konten tidak hilang di background */
-  background: rgba(0,0,0,0.5); /* hitam semi transparan */
-  border-radius: 20px;
-}
-
-/* Card bisa diberi sedikit transparansi juga */
-.card {
-  background: rgba(0,0,0,0.4); /* hitam semi transparan */
-  padding: 30px;
-  border-radius: 18px;
-  width: 300px;
-  text-align: left;
-  text-decoration: none;
-  color: white;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.05);
-}
-
-/* NEON TEXT */
-.neon-text {
-  color: #ffffff;
-  text-align: center;
-  text-shadow:
-    0 0 5px #00f7ff,
-    0 0 10px #00f7ff,
-    0 0 20px #00f7ff,
-    0 0 40px #0088ff,
-    0 0 80px #0088ff;
-}
-
-/* HERO */
-.hero {
-  min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-  background: #111827;
-}
-
-.hero h1 { font-size: 48px; margin-bottom: 20px; }
-.hero p { font-size: 20px; margin-bottom: 30px; }
-
-/* BUTTON */
-.btn {
-  padding: 15px 35px;
-  background: linear-gradient(45deg, #ff416c, #ff4b2b);
-  border-radius: 50px;
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  transition: 0.3s ease;
-  cursor: pointer;
-}
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255,75,43,0.4);
-  text-shadow: 0 0 10px #ff4b2b, 0 0 20px #ff416c;
-}
-
-/* LUCKY SPIN */
-.lucky-spin {
-  text-align: center;
-  margin: 50px 0;
-}
-
-.wheel-container {
-  margin: 20px auto;
-  width: 300px;
-  height: 300px;
-  position: relative;
-}
-.pointer {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-bottom: 30px solid #ffdd00;
-  z-index: 10;
-}
-#spin-btn {
-  margin-top: 20px;
-}
-
-/* FEATURES */
-.features {
-  padding: 80px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 30px;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  background: #111827;
-  font-size: 14px;
-  opacity: 0.6;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 32px; }
-  .hero p { font-size: 16px; }
-}
-  @media (min-width: 1024px) {
+@media (min-width: 1024px) {
   .features {
     justify-content: space-between;
   }
-
   .card {
     flex: 1;
     max-width: 350px;
@@ -217,16 +194,14 @@ footer {
   <h2 class="neon-text">PUTAR RODA HADIAH!</h2>
   <div class="wheel-container">
     <div class="pointer"></div>
-<canvas id="wheel" width="300" height="300"></canvas>
+    <canvas id="wheel" width="300" height="300"></canvas>
   </div>
   <button id="spin-btn" class="btn">PUTAR!</button>
   <p id="result" class="neon-text" style="margin-top:20px;"></p>
 </section>
 
 <!-- FEATURES -->
-<!-- FEATURES -->
 <section class="features">
-  
   <a href="https://alursword.com" target="_blank" class="card">
     <h3>⚡ Super Cepat</h3>
     <p>Proses tercepat dan terpercaya</p>
@@ -241,7 +216,6 @@ footer {
     <h3>🔒 Aman & Terpercaya</h3>
     <p>Keamanan dan kepercayaan prioritas utama.</p>
   </a>
-
 </section>
 
 <!-- FOOTER -->
@@ -252,16 +226,13 @@ footer {
 <!-- JS LUCKY SPIN -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-
   const canvas = document.getElementById("wheel");
   const ctx = canvas.getContext("2d");
 
   const segments = ["10RB","5RB","SCATTER HITAM","FREE SPIN","1JT","COBA LAGI"];
   const colors = ["#ff4b2b","#ff416c","#00f7ff","#39ff14","#b026ff","#ffdd00"];
-
   const center = canvas.width / 2;
   const radius = canvas.width / 2;
-
   let startAngle = 0;
   let spinning = false;
 
@@ -311,15 +282,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function finishSpin() {
-  const degrees = (startAngle * 180 / Math.PI + 90) % 360;
-  const index = Math.floor((360 - degrees) / (360/segments.length)) % segments.length;
+      const degrees = (startAngle * 180 / Math.PI + 90) % 360;
+      const index = Math.floor((360 - degrees) / (360/segments.length)) % segments.length;
 
-  document.getElementById("result").innerHTML =
-    "🎉 Kamu mendapatkan: <b>" + segments[index] + "</b><br><br>" +
-    "<a href='https://alursword.com/' class='btn'>AMBIL DISINI</a>";
+      document.getElementById("result").innerHTML =
+        "🎉 Kamu mendapatkan: <b>" + segments[index] + "</b><br><br>" +
+        "<a href='https://alursword.com/' class='btn'>AMBIL DISINI</a>";
 
-  spinning = false;
-}
+      spinning = false;
+    }
     requestAnimationFrame(animate);
   });
 
@@ -328,33 +299,8 @@ document.addEventListener("DOMContentLoaded", function() {
     t--;
     return c*(t*t*t + 1) + b;
   }
-
 });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
