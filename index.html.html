@@ -147,66 +147,75 @@ footer {
 
 <!-- JS LUCKY SPIN -->
 <script>
-<script>
 document.addEventListener("DOMContentLoaded", function() {
   const canvas = document.getElementById("wheel");
   const ctx = canvas.getContext("2d");
+
   const segments = ["100JT","50JT","Voucher","Free Gift","10JT","Try Again"];
   const colors = ["#ff4b2b","#ff416c","#00f7ff","#39ff14","#b026ff","#ffdd00"];
-  const center = canvas.width/2;
-  const radius = canvas.width/2;
+
+  const center = canvas.width / 2;
+  const radius = canvas.width / 2;
+
   let startAngle = 0;
   let spinning = false;
 
   function drawWheel() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     const arc = (2*Math.PI)/segments.length;
+
     for(let i=0;i<segments.length;i++){
-      ctx.fillStyle = colors[i];
       ctx.beginPath();
+      ctx.fillStyle = colors[i];
       ctx.moveTo(center,center);
       ctx.arc(center,center,radius,startAngle+i*arc,startAngle+(i+1)*arc);
       ctx.fill();
-      // text
+
       ctx.save();
       ctx.translate(center,center);
       ctx.rotate(startAngle+i*arc+arc/2);
       ctx.fillStyle = "#000";
       ctx.font = "bold 16px Arial";
-      ctx.fillText(segments[i], radius-70, 0);
+      ctx.fillText(segments[i], radius-70, 5);
       ctx.restore();
     }
   }
 
   drawWheel();
 
-  document.getElementById("spin-btn").addEventListener("click", () => {
+  document.getElementById("spin-btn").addEventListener("click", function() {
     if(spinning) return;
     spinning = true;
-    let totalRotation = Math.random() * 10 + 20; // total putaran random
-    let speed = 0.3; // kecepatan awal
 
-    function animate() {
-      startAngle += speed * 0.1;
-      speed *= 0.99; // perlahan berhenti
-      drawWheel();
-      if(speed > 0.01){
-        requestAnimationFrame(animate);
-      } else {
-        // tentukan pemenang
-        const arc = (2*Math.PI)/segments.length;
-        const winnerIndex = Math.floor((segments.length-(startAngle % (2*Math.PI))/arc)%segments.length);
-        document.getElementById("result").innerText = "Kamu mendapatkan: " + segments[winnerIndex];
+    let spinTime = 0;
+    let spinTimeTotal = 4000; // 4 detik
+
+    function rotateWheel() {
+      spinTime += 30;
+
+      if(spinTime >= spinTimeTotal) {
         spinning = false;
+        const arc = (2*Math.PI)/segments.length;
+        const winnerIndex = Math.floor((segments.length - (startAngle % (2*Math.PI))/arc) % segments.length);
+        document.getElementById("result").innerText =
+          "Kamu mendapatkan: " + segments[winnerIndex];
+        return;
       }
+
+      const spinAngle = 0.3;
+      startAngle += spinAngle;
+      drawWheel();
+      requestAnimationFrame(rotateWheel);
     }
-    animate();
+
+    rotateWheel();
   });
 });
 </script>
 
 </body>
 </html>
+
 
 
 
