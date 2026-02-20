@@ -56,11 +56,42 @@
     height: 260px;
   }
 }
- body {
-  background: url("https://i.ibb.co/d0Rj3zmn/image.png") no-repeat center center;
+body {
+  background: url("https://i.ibb.co/d0Rj3zmn/image.png") no-repeat center center fixed;
   background-size: cover;
   color: white;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
 }
+
+/* Tambahkan overlay semi-transparan untuk fitur agar teks terbaca */
+.features {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  /* overlay agar konten tidak hilang di background */
+  background: rgba(0,0,0,0.5); /* hitam semi transparan */
+  border-radius: 20px;
+}
+
+/* Card bisa diberi sedikit transparansi juga */
+.card {
+  background: rgba(0,0,0,0.4); /* hitam semi transparan */
+  padding: 30px;
+  border-radius: 18px;
+  width: 300px;
+  text-align: left;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 /* NEON TEXT */
@@ -303,6 +334,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
