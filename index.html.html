@@ -7,296 +7,138 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="https://i.ibb.co/s9DW8MXH/testes.png">
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+body { background:url("https://i.ibb.co/d0Rj3zmn/image.png") no-repeat center center fixed; background-size:cover; color:white; min-height:100vh; }
 
-body {
-  background: url("https://i.ibb.co/d0Rj3zmn/image.png") no-repeat center center fixed;
-  background-size: cover;
-  color: white;
-  min-height: 100vh;
-}
+.hero { min-height:60vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:40px 20px; background:rgba(0,0,0,0.6); }
+.hero h1 { font-size:48px; margin-bottom:20px; }
+.hero p { font-size:20px; margin-bottom:30px; }
+.neon-text { color:#fff; text-align:center; text-shadow:0 0 5px #00f7ff,0 0 10px #00f7ff,0 0 20px #00f7ff,0 0 40px #0088ff,0 0 80px #0088ff; }
 
-/* HERO SECTION */
-.hero {
-  min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-  background: rgba(0,0,0,0.6);
-}
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-.hero p {
-  font-size: 20px;
-  margin-bottom: 30px;
-}
-.neon-text {
-  color: #ffffff;
-  text-align: center;
-  text-shadow:
-    0 0 5px #00f7ff,
-    0 0 10px #00f7ff,
-    0 0 20px #00f7ff,
-    0 0 40px #0088ff,
-    0 0 80px #0088ff;
-}
+.btn { padding:15px 35px; background:linear-gradient(45deg,#ff416c,#ff4b2b); border-radius:50px; text-decoration:none; color:white; font-weight:600; transition:0.3s ease; cursor:pointer; display:inline-block; }
+.btn:hover { transform:translateY(-3px); box-shadow:0 10px 20px rgba(255,75,43,0.4); text-shadow:0 0 10px #ff4b2b,0 0 20px #ff416c; }
 
-/* BUTTON */
-.btn {
-  padding: 15px 35px;
-  background: linear-gradient(45deg, #ff416c, #ff4b2b);
-  border-radius: 50px;
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  transition: 0.3s ease;
-  cursor: pointer;
-  display: inline-block;
-}
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255,75,43,0.4);
-  text-shadow: 0 0 10px #ff4b2b, 0 0 20px #ff416c;
-}
+.lucky-spin { text-align:center; margin:50px 20px; padding:20px; background:rgba(0,0,0,0.5); border-radius:20px; }
+.wheel-container { margin:20px auto; width:90%; max-width:350px; aspect-ratio:1/1; position:relative; }
+.pointer { position:absolute; top:-5%; left:50%; transform:translateX(-50%); width:0; height:0; border-left:15px solid transparent; border-right:15px solid transparent; border-bottom:30px solid #ffdd00; z-index:10; }
 
-/* LUCKY SPIN */
-.lucky-spin {
-  text-align: center;
-  margin: 50px 20px;
-  padding: 20px;
-  background: rgba(0,0,0,0.5);
-  border-radius: 20px;
-}
+.features { padding:60px 20px; display:flex; justify-content:center; align-items:stretch; gap:30px; flex-wrap:wrap; max-width:1200px; margin:0 auto; background:rgba(0,0,0,0.5); border-radius:20px; }
+.card { background:rgba(0,0,0,0.4); padding:30px; border-radius:18px; width:300px; text-align:left; text-decoration:none; color:white; transition:all 0.3s ease; border:1px solid rgba(255,255,255,0.05); }
+.card:hover { transform:translateY(-8px); box-shadow:0 15px 35px rgba(0,255,255,0.15); }
 
-.wheel-container {
-  margin: 20px auto;
-  width: 90%;
-  max-width: 350px;
-  aspect-ratio: 1 / 1; /* membuat kotak selalu persegi */
-  position: relative;
-}
+footer { text-align:center; padding:30px; background:#111827; font-size:14px; opacity:0.6; }
 
-.pointer {
-  position: absolute;
-  top: -5%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-bottom: 30px solid #ffdd00;
-  z-index: 10;
-}
-
-/* FEATURES CARDS */
-.features {
-  padding: 60px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 30px;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-  background: rgba(0,0,0,0.5);
-  border-radius: 20px;
-}
-
-.card {
-  background: rgba(0,0,0,0.4);
-  padding: 30px;
-  border-radius: 18px;
-  width: 300px;
-  text-align: left;
-  text-decoration: none;
-  color: white;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.05);
-}
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0,255,255,0.15);
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  background: #111827;
-  font-size: 14px;
-  opacity: 0.6;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 32px; }
-  .hero p { font-size: 16px; }
-
-  .features {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .card {
-    width: 100%;
-    max-width: 320px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .features {
-    justify-content: space-between;
-  }
-  .card {
-    flex: 1;
-    max-width: 350px;
-  }
-}
+@media(max-width:768px){ .hero h1{font-size:32px;} .hero p{font-size:16px;} .features{flex-direction:column;align-items:center;gap:20px;} .card{width:100%; max-width:320px;} }
+@media(min-width:1024px){ .features{justify-content:space-between;} .card{flex:1; max-width:350px;} }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <section class="hero">
-  <h1 class="neon-text">KLIK DIBAWAH INI DAN DAPATKAN HADIAH!</h1>
-  <p class="neon-text">DAFTAR DAN PUTAR RODA UNTUK MENANGKAN HADIAH</p>
-  <a href="https://alursword.com/" class="btn">Mulai Sekarang</a>
+<h1 class="neon-text">KLIK DIBAWAH INI DAN DAPATKAN HADIAH!</h1>
+<p class="neon-text">DAFTAR DAN PUTAR RODA UNTUK MENANGKAN HADIAH</p>
+<a href="https://alursword.com/" class="btn">Mulai Sekarang</a>
 </section>
 
-<!-- LUCKY SPIN -->
-<section class="lucky-spin" id="lucky-spin">
-  <h2 class="neon-text">PUTAR RODA HADIAH!</h2>
-  <div class="wheel-container">
-    <div class="pointer"></div>
-    <canvas id="wheel"></canvas>
-  </div>
-  <button id="spin-btn" class="btn">PUTAR!</button>
-  <p id="result" class="neon-text" style="margin-top:20px;"></p>
+<section class="lucky-spin">
+<h2 class="neon-text">PUTAR RODA HADIAH!</h2>
+<div class="wheel-container">
+<div class="pointer"></div>
+<canvas id="wheel"></canvas>
+</div>
+<button id="spin-btn" class="btn">PUTAR!</button>
+<p id="result" class="neon-text" style="margin-top:20px;"></p>
 </section>
 
-<!-- FEATURES -->
 <section class="features">
-  <a href="https://alursword.com" target="_blank" class="card">
-    <h3>⚡ Super Cepat</h3>
-    <p>Proses tercepat dan terpercaya</p>
-  </a>
-
-  <a href="https://alursword.com" target="_blank" class="card">
-    <h3>🎨 Situs Mudah JP</h3>
-    <p>Scatter melimpah dan kemenangan tanpa batas</p>
-  </a>
-
-  <a href="https://alursword.com" target="_blank" class="card">
-    <h3>🔒 Aman & Terpercaya</h3>
-    <p>Keamanan dan kepercayaan prioritas utama.</p>
-  </a>
+<a href="https://alursword.com" target="_blank" class="card">
+<h3>⚡ Super Cepat</h3>
+<p>Proses tercepat dan terpercaya</p>
+</a>
+<a href="https://alursword.com" target="_blank" class="card">
+<h3>🎨 Situs Mudah JP</h3>
+<p>Scatter melimpah dan kemenangan tanpa batas</p>
+</a>
+<a href="https://alursword.com" target="_blank" class="card">
+<h3>🔒 Aman & Terpercaya</h3>
+<p>Keamanan dan kepercayaan prioritas utama.</p>
+</a>
 </section>
 
-<!-- FOOTER -->
-<footer id="kontak">
-  © 2026 JOIN NOW
-</footer>
+<footer>© 2026 JOIN NOW</footer>
 
-<!-- JS LUCKY SPIN RESPONSIVE -->
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function(){
 
-  const canvas = document.getElementById("wheel");
-  const ctx = canvas.getContext("2d");
+const canvas=document.getElementById("wheel");
+const ctx=canvas.getContext("2d");
+const segments=["10RB","5RB","SCATTER HITAM","FREE SPIN","1JT","COBA LAGI"];
+const colors=["#ff4b2b","#ff416c","#00f7ff","#39ff14","#b026ff","#ffdd00"];
+let startAngle=0,spinning=false;
 
-  const segments = ["10RB","5RB","SCATTER HITAM","FREE SPIN","1JT","COBA LAGI"];
-  const colors = ["#ff4b2b","#ff416c","#00f7ff","#39ff14","#b026ff","#ffdd00"];
-  let startAngle = 0;
-  let spinning = false;
+function resizeCanvas(){
+  const container=canvas.parentElement;
+  canvas.width=container.clientWidth;
+  canvas.height=container.clientHeight;
+}
+window.addEventListener('resize',()=>{resizeCanvas(); drawWheel();});
+resizeCanvas();
 
-  function resizeCanvas() {
-    const container = canvas.parentElement;
-    canvas.width = container.clientWidth;
-    canvas.height = container.clientHeight;
+function drawWheel(){
+  const center=canvas.width/2;
+  const radius=canvas.width/2;
+  const arc=(2*Math.PI)/segments.length;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  for(let i=0;i<segments.length;i++){
+    ctx.beginPath();
+    ctx.fillStyle=colors[i];
+    ctx.moveTo(center,center);
+    ctx.arc(center,center,radius,startAngle+i*arc,startAngle+(i+1)*arc);
+    ctx.fill();
+
+    ctx.save();
+    ctx.translate(center,center);
+    ctx.rotate(startAngle+i*arc+arc/2);
+    ctx.fillStyle="#000";
+    ctx.font=`${Math.floor(radius/8)}px Arial`;
+    ctx.textAlign="right";
+    ctx.fillText(segments[i], radius-10, 5);
+    ctx.restore();
   }
+}
+drawWheel();
 
-  window.addEventListener('resize', () => {
-    resizeCanvas();
+document.getElementById("spin-btn").addEventListener("click",function(){
+  if(spinning) return;
+  spinning=true;
+  const spinAngle=Math.random()*3000+4000;
+  const duration=4000;
+  let start=null;
+
+  function animate(timestamp){
+    if(!start) start=timestamp;
+    const progress=timestamp-start;
+    const rotation=easeOut(progress,0,spinAngle,duration);
+    startAngle=(rotation*Math.PI/180);
     drawWheel();
-  });
-
-  resizeCanvas();
-
-  function drawWheel() {
-    const center = canvas.width / 2;
-    const radius = canvas.width / 2;
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    const arc = (2*Math.PI)/segments.length;
-
-    for(let i=0;i<segments.length;i++){
-      ctx.beginPath();
-      ctx.fillStyle = colors[i];
-      ctx.moveTo(center,center);
-      ctx.arc(center,center,radius,startAngle+i*arc,startAngle+(i+1)*arc);
-      ctx.fill();
-
-      ctx.save();
-      ctx.translate(center,center);
-      ctx.rotate(startAngle+i*arc+arc/2);
-      ctx.fillStyle = "#000";
-      ctx.font = `${Math.floor(radius/10)}px Arial`;
-      ctx.fillText(segments[i], radius-70, 5);
-      ctx.restore();
-    }
+    if(progress<duration) requestAnimationFrame(animate);
+    else finishSpin();
   }
 
-  drawWheel();
-
-  document.getElementById("spin-btn").addEventListener("click", function() {
-    if(spinning) return;
-    spinning = true;
-
-    const spinAngle = Math.random() * 3000 + 4000;
-    const duration = 4000;
-    let start = null;
-
-    function animate(timestamp) {
-      if (!start) start = timestamp;
-      const progress = timestamp - start;
-      const rotation = easeOut(progress, 0, spinAngle, duration);
-      startAngle = (rotation * Math.PI / 180);
-      drawWheel();
-      if(progress < duration) requestAnimationFrame(animate);
-      else finishSpin();
-    }
-
-    function finishSpin() {
-      const degrees = (startAngle * 180 / Math.PI + 90) % 360;
-      const index = Math.floor((360 - degrees) / (360/segments.length)) % segments.length;
-
-      document.getElementById("result").innerHTML =
-        "🎉 Kamu mendapatkan: <b>" + segments[index] + "</b><br><br>" +
-        "<a href='https://alursword.com/' class='btn'>AMBIL DISINI</a>";
-
-      spinning = false;
-    }
-
-    requestAnimationFrame(animate);
-  });
-
-  function easeOut(t, b, c, d) {
-    t /= d;
-    t--;
-    return c*(t*t*t + 1) + b;
+  function finishSpin(){
+    const degrees=(startAngle*180/Math.PI+90)%360;
+    const index=Math.floor((360-degrees)/(360/segments.length))%segments.length;
+    document.getElementById("result").innerHTML=
+    "🎉 Kamu mendapatkan: <b>"+segments[index]+"</b><br><br>"+
+    "<a href='https://alursword.com/' class='btn'>AMBIL DISINI</a>";
+    spinning=false;
   }
 
+  requestAnimationFrame(animate);
+});
+
+function easeOut(t,b,c,d){t/=d;t--;return c*(t*t*t+1)+b;}
 });
 </script>
 
