@@ -17,19 +17,19 @@
 /* CARD STYLE */
 .card {
   background: #111827;
-  padding: 25px;
-  border-radius: 15px;
-  width: 280px;
+  padding: 30px;
+  border-radius: 18px;
+  width: 300px;
   text-align: left;
   text-decoration: none;
   color: white;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
   border: 1px solid rgba(255,255,255,0.05);
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,255,255,0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,255,255,0.15);
 }
 
 /* MOBILE IMPROVEMENT */
@@ -55,6 +55,7 @@
     width: 260px;
     height: 260px;
   }
+}
 body {
   background: #0f172a;
   color: white;
@@ -156,6 +157,16 @@ footer {
 @media (max-width: 768px) {
   .hero h1 { font-size: 32px; }
   .hero p { font-size: 16px; }
+}
+  @media (min-width: 1024px) {
+  .features {
+    justify-content: space-between;
+  }
+
+  .card {
+    flex: 1;
+    max-width: 350px;
+  }
 }
 </style>
 </head>
@@ -290,6 +301,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
 
 
 
