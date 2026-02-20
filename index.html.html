@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="https://i.ibb.co/s9DW8MXH/testes.png">
 <style>
-/* RESET & FONT */
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +14,6 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* BODY & BACKGROUND */
 body {
   background: url("https://i.ibb.co/d0Rj3zmn/image.png") no-repeat center center fixed;
   background-size: cover;
@@ -34,17 +32,14 @@ body {
   padding: 40px 20px;
   background: rgba(0,0,0,0.6);
 }
-
 .hero h1 {
   font-size: 48px;
   margin-bottom: 20px;
 }
-
 .hero p {
   font-size: 20px;
   margin-bottom: 30px;
 }
-
 .neon-text {
   color: #ffffff;
   text-align: center;
@@ -85,14 +80,15 @@ body {
 
 .wheel-container {
   margin: 20px auto;
-  width: 300px;
-  height: 300px;
+  width: 90%;
+  max-width: 350px;
+  aspect-ratio: 1 / 1; /* membuat kotak selalu persegi */
   position: relative;
 }
 
 .pointer {
   position: absolute;
-  top: -10px;
+  top: -5%;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
@@ -157,16 +153,6 @@ footer {
     width: 100%;
     max-width: 320px;
   }
-
-  .wheel-container {
-    width: 260px;
-    height: 260px;
-  }
-
-  #wheel {
-    width: 260px;
-    height: 260px;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -194,7 +180,7 @@ footer {
   <h2 class="neon-text">PUTAR RODA HADIAH!</h2>
   <div class="wheel-container">
     <div class="pointer"></div>
-    <canvas id="wheel" width="300" height="300"></canvas>
+    <canvas id="wheel"></canvas>
   </div>
   <button id="spin-btn" class="btn">PUTAR!</button>
   <p id="result" class="neon-text" style="margin-top:20px;"></p>
@@ -223,20 +209,34 @@ footer {
   © 2026 JOIN NOW
 </footer>
 
-<!-- JS LUCKY SPIN -->
+<!-- JS LUCKY SPIN RESPONSIVE -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+
   const canvas = document.getElementById("wheel");
   const ctx = canvas.getContext("2d");
 
   const segments = ["10RB","5RB","SCATTER HITAM","FREE SPIN","1JT","COBA LAGI"];
   const colors = ["#ff4b2b","#ff416c","#00f7ff","#39ff14","#b026ff","#ffdd00"];
-  const center = canvas.width / 2;
-  const radius = canvas.width / 2;
   let startAngle = 0;
   let spinning = false;
 
+  function resizeCanvas() {
+    const container = canvas.parentElement;
+    canvas.width = container.clientWidth;
+    canvas.height = container.clientHeight;
+  }
+
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    drawWheel();
+  });
+
+  resizeCanvas();
+
   function drawWheel() {
+    const center = canvas.width / 2;
+    const radius = canvas.width / 2;
     ctx.clearRect(0,0,canvas.width,canvas.height);
     const arc = (2*Math.PI)/segments.length;
 
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function() {
       ctx.translate(center,center);
       ctx.rotate(startAngle+i*arc+arc/2);
       ctx.fillStyle = "#000";
-      ctx.font = "bold 16px Arial";
+      ctx.font = `${Math.floor(radius/10)}px Arial`;
       ctx.fillText(segments[i], radius-70, 5);
       ctx.restore();
     }
@@ -263,22 +263,18 @@ document.addEventListener("DOMContentLoaded", function() {
     if(spinning) return;
     spinning = true;
 
-    let spinAngle = Math.random() * 3000 + 4000; // total derajat random
-    let duration = 4000;
+    const spinAngle = Math.random() * 3000 + 4000;
+    const duration = 4000;
     let start = null;
 
     function animate(timestamp) {
       if (!start) start = timestamp;
-      let progress = timestamp - start;
-      let rotation = easeOut(progress, 0, spinAngle, duration);
+      const progress = timestamp - start;
+      const rotation = easeOut(progress, 0, spinAngle, duration);
       startAngle = (rotation * Math.PI / 180);
       drawWheel();
-
-      if (progress < duration) {
-        requestAnimationFrame(animate);
-      } else {
-        finishSpin();
-      }
+      if(progress < duration) requestAnimationFrame(animate);
+      else finishSpin();
     }
 
     function finishSpin() {
@@ -291,6 +287,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       spinning = false;
     }
+
     requestAnimationFrame(animate);
   });
 
@@ -299,6 +296,7 @@ document.addEventListener("DOMContentLoaded", function() {
     t--;
     return c*(t*t*t + 1) + b;
   }
+
 });
 </script>
 
