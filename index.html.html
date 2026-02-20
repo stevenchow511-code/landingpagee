@@ -76,7 +76,18 @@ body {
   height: 300px;
   position: relative;
 }
-
+.pointer {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid #ffdd00;
+  z-index: 10;
+}
 #spin-btn {
   margin-top: 20px;
 }
@@ -118,6 +129,8 @@ footer {
 <section class="lucky-spin" id="lucky-spin">
   <h2 class="neon-text">PUTAR RODA HADIAH!</h2>
   <div class="wheel-container">
+    <div class="pointer"></div>
+<canvas id="wheel" width="300" height="300"></canvas>
     <canvas id="wheel" width="300" height="300"></canvas>
   </div>
   <button id="spin-btn" class="btn">PUTAR!</button>
@@ -148,6 +161,7 @@ footer {
 <!-- JS LUCKY SPIN -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+
   const canvas = document.getElementById("wheel");
   const ctx = canvas.getContext("2d");
 
@@ -187,34 +201,48 @@ document.addEventListener("DOMContentLoaded", function() {
     if(spinning) return;
     spinning = true;
 
-    let spinTime = 0;
-    let spinTimeTotal = 4000; // 4 detik
+    let spinAngle = Math.random() * 3000 + 4000; // total derajat random
+    let duration = 4000;
+    let start = null;
 
-    function rotateWheel() {
-      spinTime += 30;
-
-      if(spinTime >= spinTimeTotal) {
-        spinning = false;
-        const arc = (2*Math.PI)/segments.length;
-        const winnerIndex = Math.floor((segments.length - (startAngle % (2*Math.PI))/arc) % segments.length);
-        document.getElementById("result").innerText =
-          "Kamu mendapatkan: " + segments[winnerIndex];
-        return;
-      }
-
-      const spinAngle = 0.3;
-      startAngle += spinAngle;
+    function animate(timestamp) {
+      if (!start) start = timestamp;
+      let progress = timestamp - start;
+      let rotation = easeOut(progress, 0, spinAngle, duration);
+      startAngle = (rotation * Math.PI / 180);
       drawWheel();
-      requestAnimationFrame(rotateWheel);
+
+      if (progress < duration) {
+        requestAnimationFrame(animate);
+      } else {
+        finishSpin();
+      }
     }
 
-    rotateWheel();
+    function finishSpin() {
+      const arc = (2*Math.PI)/segments.length;
+      const degrees = (startAngle * 180 / Math.PI + 90) % 360;
+      const index = Math.floor((360 - degrees) / (360/segments.length)) % segments.length;
+      document.getElementById("result").innerText =
+        "🎉 Kamu mendapatkan: " + segments[index];
+      spinning = false;
+    }
+
+    requestAnimationFrame(animate);
   });
+
+  function easeOut(t, b, c, d) {
+    t /= d;
+    t--;
+    return c*(t*t*t + 1) + b;
+  }
+
 });
 </script>
 
 </body>
 </html>
+
 
 
 
