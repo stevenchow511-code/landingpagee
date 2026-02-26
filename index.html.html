@@ -8,28 +8,125 @@
 <link rel="icon" type="image/png" href="https://i.ibb.co/s9DW8MXH/testes.png">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
-body { background:url("https://i.ibb.co/d0Rj3zmn/image.png") no-repeat center center fixed; background-size:cover; color:white; min-height:100vh; }
+body { 
+    background:url("https://i.ibb.co/d0Rj3zmn/image.png") no-repeat center center fixed; 
+    background-size:cover; 
+    color:white; 
+    min-height:100vh; 
+}
 
-.hero { min-height:60vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:40px 20px;
+.hero { 
+    min-height:60vh; 
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center; 
+    align-items:center; 
+    text-align:center; 
+    padding:40px 20px; 
+    background:rgba(0,0,0,0.6); 
+}
 .hero h1 { font-size:42px; margin-bottom:15px; line-height:1.2; }
 .hero p { font-size:18px; margin-bottom:25px; }
-.neon-text { color:#fff; text-align:center; text-shadow:0 0 5px #00f7ff,0 0 10px #00f7ff,0 0 20px #00f7ff,0 0 40px #0088ff,0 0 80px #0088ff; }
 
-.btn { padding:15px 35px; background:linear-gradient(45deg,#ff416c,#ff4b2b); border-radius:50px; text-decoration:none; color:white; font-weight:600; transition:0.3s ease; cursor:pointer; display:inline-block; }
-.btn:hover { transform:translateY(-3px); box-shadow:0 10px 20px rgba(255,75,43,0.4); text-shadow:0 0 10px #ff4b2b,0 0 20px #ff416c; }
+.neon-text { 
+    color:#fff; 
+    text-align:center; 
+    text-shadow:0 0 5px #00f7ff,0 0 10px #00f7ff,0 0 20px #00f7ff,0 0 40px #0088ff,0 0 80px #0088ff; 
+}
 
-.lucky-spin { text-align:center; margin:50px 20px; padding:20px; background:rgba(0,0,0,0.5); border-radius:20px; }
-.wheel-container { margin:20px auto; width:90%; max-width:350px; aspect-ratio:1/1; position:relative; }
-.pointer { position:absolute; top:-5%; left:50%; transform:translateX(-50%); width:0; height:0; border-left:15px solid transparent; border-right:15px solid transparent; border-bottom:30px solid #ffdd00; z-index:10; }
+.btn { 
+    padding:12px 30px; 
+    background:linear-gradient(45deg,#ff416c,#ff4b2b); 
+    border-radius:50px; 
+    text-decoration:none; 
+    color:white; 
+    font-weight:600; 
+    transition:0.3s ease; 
+    cursor:pointer; 
+    display:inline-block; 
+}
+.btn:hover { 
+    transform:translateY(-3px); 
+    box-shadow:0 10px 20px rgba(255,75,43,0.4); 
+    text-shadow:0 0 10px #ff4b2b,0 0 20px #ff416c; 
+}
 
-.features { padding:60px 20px; display:flex; justify-content:center; align-items:stretch; gap:30px; flex-wrap:wrap; max-width:1200px; margin:0 auto; background:rgba(0,0,0,0.5); border-radius:20px; }
-.card { background:rgba(0,0,0,0.4); padding:30px; border-radius:18px; width:300px; text-align:left; text-decoration:none; color:white; transition:all 0.3s ease; border:1px solid rgba(255,255,255,0.05); }
-.card:hover { transform:translateY(-8px); box-shadow:0 15px 35px rgba(0,255,255,0.15); }
+.lucky-spin { 
+    text-align:center; 
+    margin:30px 15px; 
+    padding:15px; 
+    background:rgba(0,0,0,0.5); 
+    border-radius:15px; 
+}
+.wheel-container { 
+    margin:15px auto; 
+    width:100%; 
+    max-width:300px; 
+    aspect-ratio:1/1; 
+    position:relative; 
+}
+.pointer { 
+    position:absolute; 
+    top:-6%; 
+    left:50%; 
+    transform:translateX(-50%); 
+    width:0; 
+    height:0; 
+    border-left:15px solid transparent; 
+    border-right:15px solid transparent; 
+    border-bottom:30px solid #ffdd00; 
+    z-index:10; 
+}
 
-footer { text-align:center; padding:30px; background:#111827; font-size:14px; opacity:0.6; }
+.features { 
+    padding:40px 15px; 
+    display:flex; 
+    justify-content:center; 
+    align-items:stretch; 
+    gap:20px; 
+    flex-wrap:wrap; 
+    max-width:1200px; 
+    margin:0 auto; 
+    background:rgba(0,0,0,0.5); 
+    border-radius:15px; 
+}
+.card { 
+    background:rgba(0,0,0,0.4); 
+    padding:20px; 
+    border-radius:15px; 
+    width:100%; 
+    max-width:280px; 
+    text-align:left; 
+    text-decoration:none; 
+    color:white; 
+    transition:all 0.3s ease; 
+    border:1px solid rgba(255,255,255,0.05); 
+}
+.card:hover { 
+    transform:translateY(-6px); 
+    box-shadow:0 10px 25px rgba(0,255,255,0.15); 
+}
 
-@media(max-width:768px){ .hero h1{font-size:32px;} .hero p{font-size:16px;} .features{flex-direction:column;align-items:center;gap:20px;} .card{width:100%; max-width:320px;} }
-@media(min-width:1024px){ .features{justify-content:space-between;} .card{flex:1; max-width:350px;} }
+footer { 
+    text-align:center; 
+    padding:20px; 
+    background:#111827; 
+    font-size:14px; 
+    opacity:0.7; 
+}
+
+/* MOBILE ADJUSTMENTS */
+@media(max-width:768px){
+    .hero h1{font-size:28px;} 
+    .hero p{font-size:16px;} 
+    .features{flex-direction:column;align-items:center;gap:15px;} 
+    .card{width:100%; max-width:320px;} 
+    .btn{padding:10px 25px; font-size:14px;}
+}
+@media(min-width:1024px){ 
+    .features{justify-content:space-between;} 
+    .card{flex:1; max-width:350px;} 
+}
 </style>
 </head>
 <body>
@@ -47,7 +144,7 @@ footer { text-align:center; padding:30px; background:#111827; font-size:14px; op
 <canvas id="wheel"></canvas>
 </div>
 <button id="spin-btn" class="btn">PUTAR!</button>
-<p id="result" class="neon-text" style="margin-top:20px;"></p>
+<p id="result" class="neon-text" style="margin-top:15px;"></p>
 </section>
 
 <section class="features">
@@ -144,4 +241,3 @@ function easeOut(t,b,c,d){t/=d;t--;return c*(t*t*t+1)+b;}
 
 </body>
 </html>
-
