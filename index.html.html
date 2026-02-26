@@ -10,9 +10,10 @@
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
 body { 
     background:url("https://i.ibb.co/d0Rj3zmn/image.png") no-repeat center center fixed; 
-    background-size:cover; 
-    color:white; 
-    min-height:100vh; 
+    background-repeat: no-repeat;
+    background-position: center center;  /* posisi di tengah */
+    background-size: cover;             /* scale otomatis supaya memenuhi layar */
+    background-attachment: fixed;       /* opsional, kalau mau tetap statis saat scroll */
 }
 
 .hero { 
@@ -238,4 +239,5 @@ function easeOut(t,b,c,d){t/=d;t--;return c*(t*t*t+1)+b;}
 
 </body>
 </html>
+
 
