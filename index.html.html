@@ -4,257 +4,174 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FREE - Lucky Spin</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="https://i.ibb.co/s9DW8MXH/testes.png">
+
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
-body { 
-    background:url("https://i.ibb.co/d0Rj3zmn/image.png") no-repeat center center fixed; 
-    background-repeat: no-repeat;
-    background-position: center center;  /* posisi di tengah */
-    background-size: cover;             /* scale otomatis supaya memenuhi layar */
-    background-attachment: fixed;       /* opsional, kalau mau tetap statis saat scroll */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+
+body{
+  background:url("https://i.ibb.co/d0Rj3zmn/image.png") no-repeat center/cover fixed;
 }
 
-.hero { 
-    min-height:60vh; 
-    display:flex; 
-    flex-direction:column; 
-    justify-content:center; 
-    align-items:center; 
-    text-align:center; 
-    padding:40px 20px; 
-}
-.hero h1 { font-size:42px; margin-bottom:15px; line-height:1.2; }
-.hero p { font-size:18px; margin-bottom:25px; }
-
-.neon-text { 
-    color:#fff; 
-    text-align:center; 
-    text-shadow:0 0 5px #00f7ff,0 0 10px #00f7ff,0 0 20px #00f7ff,0 0 40px #0088ff,0 0 80px #0088ff; 
+.hero{text-align:center;padding:40px;}
+.neon-text{
+  color:#fff;
+  text-shadow:0 0 5px #00f7ff,0 0 15px #00f7ff;
 }
 
-.btn { 
-    padding:12px 30px; 
-    background:linear-gradient(45deg,#ff416c,#ff4b2b); 
-    border-radius:50px; 
-    text-decoration:none; 
-    color:white; 
-    font-weight:600; 
-    transition:0.3s ease; 
-    cursor:pointer; 
-    display:inline-block; 
-}
-.btn:hover { 
-    transform:translateY(-3px); 
-    box-shadow:0 10px 20px rgba(255,75,43,0.4); 
-    text-shadow:0 0 10px #ff4b2b,0 0 20px #ff416c; 
+.btn{
+  padding:12px 30px;
+  background:linear-gradient(45deg,#ff416c,#ff4b2b);
+  border-radius:50px;
+  color:#fff;
+  border:none;
+  cursor:pointer;
 }
 
-.lucky-spin { 
-    text-align:center; 
-    margin:30px 15px; 
-    padding:15px; 
-    border-radius:15px; 
-}
-.wheel-container { 
-    margin:15px auto; 
-    width:100%; 
-    max-width:300px; 
-    aspect-ratio:1/1; 
-    position:relative; 
-}
-.pointer { 
-    position:absolute; 
-    top:-6%; 
-    left:50%; 
-    transform:translateX(-50%); 
-    width:0; 
-    height:0; 
-    border-left:15px solid transparent; 
-    border-right:15px solid transparent; 
-    border-bottom:30px solid #ffdd00; 
-    z-index:10; 
+.lucky-spin{text-align:center;margin-top:20px;}
+
+.wheel-container{
+  margin:auto;
+  width:300px;
+  height:300px;
+  position:relative;
 }
 
-.features { 
-    padding:40px 15px; 
-    display:flex; 
-    justify-content:center; 
-    align-items:stretch; 
-    gap:20px; 
-    flex-wrap:wrap; 
-    max-width:1200px; 
-    margin:0 auto; 
-    border-radius:15px; 
-}
-.card { 
-    background:rgba(0,0,0,0.4); 
-    padding:20px; 
-    border-radius:15px; 
-    width:100%; 
-    max-width:280px; 
-    text-align:left; 
-    text-decoration:none; 
-    color:white; 
-    transition:all 0.3s ease; 
-    border:1px solid rgba(255,255,255,0.05); 
-}
-.card:hover { 
-    transform:translateY(-6px); 
-    box-shadow:0 10px 25px rgba(0,255,255,0.15); 
-}
-
-footer { 
-    text-align:center; 
-    padding:20px; 
-    background:#111827; 
-    font-size:14px; 
-    opacity:0.7; 
-}
-
-/* MOBILE ADJUSTMENTS */
-@media(max-width:768px){
-    .hero h1{font-size:28px;} 
-    .hero p{font-size:16px;} 
-    .features{flex-direction:column;align-items:center;gap:15px;} 
-    .card{width:100%; max-width:320px;} 
-    .btn{padding:10px 25px; font-size:14px;}
-}
-@media(min-width:1024px){ 
-    .features{justify-content:space-between;} 
-    .card{flex:1; max-width:350px;} 
+.pointer{
+  position:absolute;
+  top:-10px;
+  left:50%;
+  transform:translateX(-50%);
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-bottom:30px solid yellow;
+  z-index:10;
 }
 </style>
 </head>
 <body>
 
-<section class="hero">
-<h1 class="neon-text">KLIK DIBAWAH INI DAN DAPATKAN HADIAH!</h1>
-<p class="neon-text">DAFTAR DAN PUTAR RODA UNTUK MENANGKAN HADIAH</p>
-<a href="https://alursword.com/" class="btn">Mulai Sekarang</a>
-</section>
+<div class="hero">
+<h1 class="neon-text">PUTAR RODA HADIAH!</h1>
+</div>
 
-<section class="lucky-spin">
-<h2 class="neon-text">PUTAR RODA HADIAH!</h2>
+<div class="lucky-spin">
 <div class="wheel-container">
 <div class="pointer"></div>
 <canvas id="wheel"></canvas>
 </div>
+<br>
 <button id="spin-btn" class="btn">PUTAR!</button>
-<p id="result" class="neon-text" style="margin-top:15px;"></p>
-</section>
-
-<section class="features">
-<a href="https://alursword.com" target="_blank" class="card">
-<h3>⚡ Super Cepat</h3>
-<p>Proses tercepat dan terpercaya</p>
-</a>
-<a href="https://alursword.com" target="_blank" class="card">
-<h3>🎨 Situs Mudah JP</h3>
-<p>Scatter melimpah dan kemenangan tanpa batas</p>
-</a>
-<a href="https://alursword.com" target="_blank" class="card">
-<h3>🔒 Aman & Terpercaya</h3>
-<p>Keamanan dan kepercayaan prioritas utama.</p>
-</a>
-</section>
-
-<footer>© 2026 JOIN NOW</footer>
+<p id="result" class="neon-text"></p>
+</div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function(){
+const canvas = document.getElementById("wheel");
+const ctx = canvas.getContext("2d");
 
-const canvas=document.getElementById("wheel");
-const ctx=canvas.getContext("2d");
-const segments=["10RB","5RB","SCATTER","FREE SPIN","1JT","COBA LAGI"];
-const colors=["#ff4b2b","#ff416c","#00f7ff","#39ff14","#b026ff","#ffdd00"];
-let startAngle=0,spinning=false;
+const segments = ["10RB","5RB","SCATTER","FREE SPIN","1JT","COBA LAGI"];
+const colors = ["#ff4b2b","#ff416c","#00f7ff","#39ff14","#b026ff","#ffdd00"];
 
+let startAngle = 0;
+let spinning = false;
+
+// resize ringan
 function resizeCanvas(){
-  const container = canvas.parentElement;
-  const scale = window.devicePixelRatio > 1 ? 1 : 1; // paksa 1 biar ringan
-  canvas.width = container.clientWidth * scale;
-  canvas.height = container.clientHeight * scale;
-  ctx.setTransform(scale, 0, 0, scale, 0, 0);
+  canvas.width = 300;
+  canvas.height = 300;
 }
-window.addEventListener('resize',()=>{resizeCanvas(); drawWheel();});
 resizeCanvas();
 
 function drawWheel(){
-  const center=canvas.width/2;
-  const radius=canvas.width/2;
-  const arc=(2*Math.PI)/segments.length;
+  const center = canvas.width/2;
+  const radius = canvas.width/2;
+  const arc = (2*Math.PI)/segments.length;
+
   ctx.clearRect(0,0,canvas.width,canvas.height);
 
   for(let i=0;i<segments.length;i++){
+
+    // slice warna
     ctx.beginPath();
-    ctx.fillStyle=colors[i];
+    ctx.fillStyle = colors[i];
     ctx.moveTo(center,center);
     ctx.arc(center,center,radius,startAngle+i*arc,startAngle+(i+1)*arc);
     ctx.fill();
 
-ctx.save();
-ctx.translate(center, center);
+    // ===== TEXT =====
+    ctx.save();
+    ctx.translate(center, center);
 
-// sudut slice + rotasi roda
-let angle = startAngle + i * arc + arc / 2;
+    let angle = startAngle + i * arc + arc / 2;
+    let normalized = angle % (2*Math.PI);
 
-// putar ke posisi slice
-ctx.rotate(angle);
+    ctx.rotate(angle);
 
-// biar teks ga kebalik
-if (angle > Math.PI / 2 && angle < 3 * Math.PI / 2) {
-  ctx.rotate(Math.PI);
-}
+    // biar teks ga kebalik
+    if(normalized > Math.PI/2 && normalized < 3*Math.PI/2){
+      ctx.rotate(Math.PI);
+    }
 
-// styling
-ctx.fillStyle = "#fff";
-ctx.strokeStyle = "#000";
-ctx.lineWidth = 3;
-ctx.font = `bold ${Math.floor(radius/10)}px sans-serif`;
-ctx.textAlign = "center";
+    ctx.fillStyle = "#fff";
+    ctx.strokeStyle = "#000";
+    ctx.lineWidth = 3;
 
-// posisi teks (lebih tengah & rapi)
-ctx.strokeText(segments[i], 0, -radius + 60);
-ctx.fillText(segments[i], 0, -radius + 60);
+    ctx.font = `bold ${Math.floor(radius/10)}px sans-serif`;
+    ctx.textAlign = "center";
 
-ctx.restore();
+    ctx.strokeText(segments[i], 0, -radius + 60);
+    ctx.fillText(segments[i], 0, -radius + 60);
+
+    ctx.restore();
   }
 }
+
 drawWheel();
 
-document.getElementById("spin-btn").addEventListener("click",function(){
+document.getElementById("spin-btn").onclick = function(){
   if(spinning) return;
-  spinning=true;
-  const spinAngle=Math.random()*3000+4000;
-  const duration=4000;
-  let start=null;
+  spinning = true;
 
-  function animate(timestamp){
-    if(!start) start=timestamp;
-    const progress=timestamp-start;
-    const rotation=easeOut(progress,0,spinAngle,duration);
-    startAngle=(rotation*Math.PI/180);
+  const spinAngle = Math.random()*3000 + 4000;
+  const duration = 4000;
+  let start = null;
+
+  function animate(t){
+    if(!start) start = t;
+
+    const progress = t - start;
+    const rotation = easeOut(progress,0,spinAngle,duration);
+
+    startAngle = rotation * Math.PI / 180;
+
     drawWheel();
-    if(progress<duration) requestAnimationFrame(animate);
-    else finishSpin();
+
+    if(progress < duration){
+      requestAnimationFrame(animate);
+    } else {
+      finishSpin();
+    }
   }
 
   function finishSpin(){
-    const degrees=(startAngle*180/Math.PI+90)%360;
-    const index=Math.floor((360-degrees)/(360/segments.length))%segments.length;
-    document.getElementById("result").innerHTML=
-    "🎉 Kamu mendapatkan: <b>"+segments[index]+"</b><br><br>"+
-    "<a href='https://alursword.com/' class='btn'>AMBIL DISINI</a>";
-    spinning=false;
+    const degrees = (startAngle*180/Math.PI + 90) % 360;
+    const index = Math.floor((360 - degrees)/(360/segments.length)) % segments.length;
+
+    document.getElementById("result").innerHTML =
+    "🎉 Kamu mendapatkan: <b>"+segments[index]+"</b>";
+
+    spinning = false;
   }
 
   requestAnimationFrame(animate);
-});
+}
 
-function easeOut(t,b,c,d){t/=d;t--;return c*(t*t*t+1)+b;}
-});
+function easeOut(t,b,c,d){
+  t/=d;
+  t--;
+  return c*(t*t*t+1)+b;
+}
 </script>
 
 </body>
