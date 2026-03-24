@@ -194,30 +194,30 @@ function drawWheel(){
     ctx.arc(center,center,radius,startAngle+i*arc,startAngle+(i+1)*arc);
     ctx.fill();
 
-    ctx.save();
+ctx.save();
 ctx.translate(center, center);
 
-// 🔥 IKUT ROTASI RODA
-ctx.rotate(startAngle + i * arc + arc / 2);
+// sudut slice + rotasi roda
+let angle = startAngle + i * arc + arc / 2;
 
-// posisi teks
-ctx.textAlign = "center";
+// putar ke posisi slice
+ctx.rotate(angle);
+
+// biar teks ga kebalik
+if (angle > Math.PI / 2 && angle < 3 * Math.PI / 2) {
+  ctx.rotate(Math.PI);
+}
+
+// styling
 ctx.fillStyle = "#fff";
 ctx.strokeStyle = "#000";
 ctx.lineWidth = 3;
+ctx.font = `bold ${Math.floor(radius/10)}px sans-serif`;
+ctx.textAlign = "center";
 
-// font ringan untuk mobile
-ctx.font = `bold ${Math.floor(radius/9)}px sans-serif`;
-
-// 🔥 FIX BIAR GA KEBALIK
-let angle = startAngle + i * arc + arc / 2;
-if (angle > Math.PI / 2 && angle < 3 * Math.PI / 2) {
-  ctx.rotate(Math.PI); // balik teks biar tetap tegak
-}
-
-// posisi di dalam slice
-ctx.strokeText(segments[i], 0, -radius + 40);
-ctx.fillText(segments[i], 0, -radius + 40);
+// posisi teks (lebih tengah & rapi)
+ctx.strokeText(segments[i], 0, -radius + 60);
+ctx.fillText(segments[i], 0, -radius + 60);
 
 ctx.restore();
   }
