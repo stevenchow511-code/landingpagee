@@ -196,7 +196,8 @@ function drawWheel(){
 
     ctx.save();
     ctx.translate(center,center);
-    ctx.rotate(startAngle+i*arc+arc/2);
+    ctx.rotate(i * arc + arc / 2);
+	ctx.rotate(Math.PI / 2);
     ctx.fillStyle="#000";
 	ctx.fillStyle="#fff"; // warna putih biar kontras
     ctx.strokeStyle="#000"; // outline hitam
