@@ -197,14 +197,13 @@ function drawWheel(){
     ctx.save();
     ctx.translate(center,center);
     ctx.rotate(i * arc + arc / 2);
-	ctx.rotate(Math.PI / 2);
     ctx.fillStyle="#000";
 	ctx.fillStyle="#fff"; // warna putih biar kontras
     ctx.strokeStyle="#000"; // outline hitam
     ctx.lineWidth=3;
     ctx.font=`bold ${Math.floor(radius/9)}px Inter`;
-    ctx.strokeText(segments[i], radius-10, 5);
-    ctx.fillText(segments[i], radius-10, 5);
+    ctx.strokeText(segments[i], radius+50, 5);
+    ctx.fillText(segments[i], radius+50, 5);
     ctx.restore();
   }
 }
