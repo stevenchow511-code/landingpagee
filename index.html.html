@@ -202,8 +202,8 @@ function drawWheel(){
     ctx.strokeStyle="#000"; // outline hitam
     ctx.lineWidth=3;
     ctx.font=`bold ${Math.floor(radius/9)}px Inter`;
-    ctx.strokeText(segments[i], radius+50, 5);
-    ctx.fillText(segments[i], radius+50, 5);
+    ctx.strokeText(segments[i], radius-10, 50);
+    ctx.fillText(segments[i], radius-10, 50);
     ctx.restore();
   }
 }
