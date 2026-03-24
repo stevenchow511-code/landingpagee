@@ -195,16 +195,31 @@ function drawWheel(){
     ctx.fill();
 
     ctx.save();
-    ctx.translate(center,center);
-    ctx.rotate(i * arc + arc / 2);
-    ctx.fillStyle="#000";
-	ctx.fillStyle="#fff"; // warna putih biar kontras
-    ctx.strokeStyle="#000"; // outline hitam
-    ctx.lineWidth=3;
-    ctx.font=`bold ${Math.floor(radius/9)}px Inter`;
-    ctx.strokeText(segments[i], radius-10, 50);
-    ctx.fillText(segments[i], radius-10, 50);
-    ctx.restore();
+ctx.translate(center, center);
+
+// 🔥 IKUT ROTASI RODA
+ctx.rotate(startAngle + i * arc + arc / 2);
+
+// posisi teks
+ctx.textAlign = "center";
+ctx.fillStyle = "#fff";
+ctx.strokeStyle = "#000";
+ctx.lineWidth = 3;
+
+// font ringan untuk mobile
+ctx.font = `bold ${Math.floor(radius/9)}px sans-serif`;
+
+// 🔥 FIX BIAR GA KEBALIK
+let angle = startAngle + i * arc + arc / 2;
+if (angle > Math.PI / 2 && angle < 3 * Math.PI / 2) {
+  ctx.rotate(Math.PI); // balik teks biar tetap tegak
+}
+
+// posisi di dalam slice
+ctx.strokeText(segments[i], 0, -radius + 40);
+ctx.fillText(segments[i], 0, -radius + 40);
+
+ctx.restore();
   }
 }
 drawWheel();
